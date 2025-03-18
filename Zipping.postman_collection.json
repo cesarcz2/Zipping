@@ -1,0 +1,56 @@
+{
+	"info": {
+		"_postman_id": "f1e83659-3137-4355-afbc-dff521d3d91b",
+		"name": "Zipping",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16028845"
+	},
+	"item": [
+		{
+			"name": "https://api.zippin.com.ar/v2/shipment.",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "8f3c1bbc-aa8b-4136-8e5f-43565890c75a",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "8f0f7995-c5d7-43ba-bb60-ef9b965561e4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"account_id\": 17601,\r\n  \"origin_id\": 362782\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.zippin.com.ar/v2/shipment.",
+					"protocol": "https",
+					"host": [
+						"api",
+						"zippin",
+						"com",
+						"ar"
+					],
+					"path": [
+						"v2",
+						"shipment."
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
