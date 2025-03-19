@@ -1,0 +1,141 @@
+{
+	"info": {
+		"_postman_id": "f1e83659-3137-4355-afbc-dff521d3d91b",
+		"name": "Zipping app",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16028845"
+	},
+	"item": [
+		{
+			"name": "shipments",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "8f3c1bbc-aa8b-4136-8e5f-43565890c75a",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "8f0f7995-c5d7-43ba-bb60-ef9b965561e4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"account_id\": 17601,\r\n  \"origin_id\": 362782\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.zippin.com.ar/v2/shipments",
+					"protocol": "https",
+					"host": [
+						"api",
+						"zippin",
+						"com",
+						"ar"
+					],
+					"path": [
+						"v2",
+						"shipments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar  envio",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData1 = pm.response.json();\r",
+							"\r",
+							"console.log(jsonData1.status);\r",
+							"console.log(jsonData1.shipment_id);\r",
+							"console.log(jsonData1. external_id );\r",
+							"console.log(jsonData1. account_id);\r",
+							"console.log(jsonData1. carrier_id);\r",
+							"console.log(jsonData1. package_id);\r",
+							"\r",
+							"let currentDateTime = new Date();\r",
+							"\r",
+							"// Imprimir la fecha y hora en la consola de Postman\r",
+							"console.log(\"Test date:\", currentDateTime.toLocaleString());\r",
+							"\r",
+							"//Valida que el estatus responda un 500\r",
+							"pm.test(\"Status code is 500\", function () {\r",
+							"    pm.response.to.have.status(500);\r",
+							"});\r",
+							"\r",
+							"//valida que el tiempo de respuesta sea menor a 5 segundos\r",
+							"pm.test(\"Response time is less than 5000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(5000);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "8f3c1bbc-aa8b-4136-8e5f-43565890c75a",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "8f0f7995-c5d7-43ba-bb60-ef9b965561e4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"{id_envio\": ,\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.zippin.com.ar/v2/shipments/{id_envio}.",
+					"protocol": "https",
+					"host": [
+						"api",
+						"zippin",
+						"com",
+						"ar"
+					],
+					"path": [
+						"v2",
+						"shipments",
+						"{id_envio}."
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
